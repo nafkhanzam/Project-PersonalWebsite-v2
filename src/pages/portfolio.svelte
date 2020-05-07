@@ -59,7 +59,7 @@
 
 <div class="mb-4 d-flex">
   <div class="mr-4">
-    <img class="photo" src="portfolio-photo.jpg" alt="Photo" />
+    <img class="photo" src="/portfolio-photo.jpg" alt="portfolio-photo" />
   </div>
   <div class="mr-4">
     <h1 class="font-weight-bold">MOCH. NAFKHAN ALZAMZAMI</h1>
@@ -74,11 +74,11 @@
 </div>
 <div class="d-flex justify-content-between">
   <div class="mr-4 flex-fill">
-    <img class="mr-2" src="email.png" alt="Email" style="width: 30px;" />
+    <img class="mr-2" src="/email.png" alt="Email" style="width: 30px;" />
     <span>nafkhanalzamzami@gmail.com</span>
   </div>
   <div class="mr-4 flex-fill">
-    <img class="mr-2" src="phone.png" alt="Phone" style="width: 30px;" />
+    <img class="mr-2" src="/phone.png" alt="Phone" style="width: 30px;" />
     <span>+62 85815805174</span>
   </div>
 </div>
