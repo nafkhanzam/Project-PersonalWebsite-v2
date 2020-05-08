@@ -81,6 +81,7 @@
 </style>
 
 <h1>ITB NIM Finder (ver. {version})</h1>
+<hr />
 <input
   type="text"
   class="form-control"

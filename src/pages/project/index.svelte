@@ -15,7 +15,15 @@
       desc:
         "Tugas Kecil 4: String matcher using files with Knuth-Morris-Pratt, Boyer-Moore, and Regular Expression.",
       url: "pattern-matcher",
-      version: "Last updated: 28 May 2020"
+      version: "Last updated: 28 April 2020"
+    },
+    {
+      title: "Checkmate Finder",
+      img: "/chess.jpg",
+      desc:
+        "Tugas Makalah: Finding Checkmate in N moves in Chess using Backtracking and Depth Limited Search Algorithm.",
+      url: "checkmate-finder",
+      version: "Last updated: 10 May 2020"
     }
   ];
 </script>

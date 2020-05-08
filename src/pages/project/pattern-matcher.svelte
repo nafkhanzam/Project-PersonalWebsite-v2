@@ -65,7 +65,7 @@
       addFiles(Array.from(e.target.files));
       e.target.value = null;
     }} />
-  <span>Tambahkan File</span>
+  <span>Add File(s)</span>
 </label>
 <div class="accordion">
   {#each files as file (file.id)}
@@ -82,7 +82,7 @@
             {file.filename}
           </button>
           <button class="btn btn-danger" on:click={() => removeFile(file.id)}>
-            Hapus
+            Remove
           </button>
         </h2>
       </div>
@@ -94,7 +94,7 @@
       </div>
     </div>
   {:else}
-    <p>Belum ada file yang dipilih...</p>
+    <p>No file chosen yet...</p>
   {/each}
 </div>
 <div class="mt-4">
@@ -110,7 +110,7 @@
         bind:value={keyword} />
     </div>
     <div class="form-group">
-      <b>Pilih algoritma:</b>
+      <b>Algorithm:</b>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -144,7 +144,7 @@
         class="btn btn-primary mr-2"
         on:click|preventDefault={search}
         disabled={!server || !keyword || !files.length}>
-        Cari
+        Search!
       </button>
       <!-- <input
         type="text"
@@ -157,7 +157,7 @@
 {#if resultPromises.length > 0}
   <div class="accordion mt-4">
     <hr />
-    <h4>Hasil:</h4>
+    <h4>Result:</h4>
     {#each resultPromises as resultPromise}
       <div class="card">
         <div class="card-header" id="card-result-heading">
@@ -180,19 +180,19 @@
           class="collapse show"
           aria-labelledby="card-result-heading">
           {#await resultPromise.promise}
-            Fetching jawaban...
+            Fetching answer(s)...
           {:then result}
             {#if result.data && result.data.length}
               {#each result.data as data}
                 <div class="card">
                   <div class="card-body">
-                    <b>Waktu:</b>
+                    <b>Date/Time:</b>
                     {data.time}
                     <br />
-                    <b>Jumlah:</b>
+                    <b>Count:</b>
                     {data.count}
                     <br />
-                    <b>Kalimat:</b>
+                    <b>Sentence:</b>
                     <br />
                     {@html data.sentence.substring(0, data.index_found) + data.sentence
                         .substring(
@@ -205,7 +205,7 @@
               {/each}
             {:else}
               <div class="card">
-                <div class="card-body">Pencarian tidak ditemukan.</div>
+                <div class="card-body">No result matches.</div>
               </div>
             {/if}
           {:catch error}
