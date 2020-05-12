@@ -59,7 +59,7 @@
 
 <div class="mb-4 d-flex">
   <div class="mr-4">
-    <img class="photo" src="/portfolio-photo.jpg" alt="portfolio-photo" />
+    <img class="photo" src="/portfolio-photo.jpg" alt="self-potrait" />
   </div>
   <div class="mr-4">
     <h1 class="font-weight-bold">MOCH. NAFKHAN ALZAMZAMI</h1>

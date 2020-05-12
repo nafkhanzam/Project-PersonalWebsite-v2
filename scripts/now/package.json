@@ -2,7 +2,7 @@
     "scripts": {
         "build": "echo \"dummy build\"",
         "build:app": "cd ../.. && npm run build",
-        "deploy": "node build && npx now --prod"
+        "deploy": "node build && npx now"
     },
     "dependencies": {
         "@sveltech/ssr": "^0.0.9",

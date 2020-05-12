@@ -44,21 +44,19 @@
     <div class="col-4">
       <h5 style="display: inline;">Tags:</h5>
       {#if selectedTags.size}
-        <a
-          href="javascript:void(0);"
+        <button
           on:click={() => {
             selectedTags.clear();
             selectedTags = selectedTags;
           }}
           class="badge badge-pill badge-primary ml-2">
           Clear &times;
-        </a>
+        </button>
       {/if}
       <br />
       <div class="mt-2">
         {#each Array.from(tags) as tag}
-          <a
-            href="javascript:void(0);"
+          <button
             on:click={() => {
               if (selectedTags.has(tag)) {
                 selectedTags.delete(tag);
@@ -69,7 +67,7 @@
             }}
             class={`badge badge-pill badge-${selectedTags.has(tag) ? 'warning' : 'dark'} m-1`}>
             {tag}
-          </a>
+          </button>
         {/each}
       </div>
     </div>

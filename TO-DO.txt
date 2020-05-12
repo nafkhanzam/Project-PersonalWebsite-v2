@@ -1,0 +1,11 @@
+- Get-To-Know me Quiz.
+- Snake
+- To-Do list with localStorage
+- Calorie Counter
+- Chat App without log in?
+- Square memories game
+- Online judge
+- Add Ghosted
+
+https://blog.bitsrc.io/15-app-ideas-to-build-and-level-up-your-coding-skills-28612c72a3b1
+https://www.freecodecamp.org/news/here-are-some-app-ideas-you-can-build-to-level-up-your-coding-skills-39618291f672/

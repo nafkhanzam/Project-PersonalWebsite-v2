@@ -23,7 +23,14 @@
       desc:
         "Tugas Makalah: Finding Checkmate in N moves in Chess using Backtracking and Depth Limited Search Algorithm.",
       url: "checkmate-finder",
-      version: "Last updated: 10 May 2020"
+      version: "Last updated: 3 May 2020"
+    },
+    {
+      title: "Substitution Statistics",
+      img: "/substat.png",
+      desc: "A live input football matches.",
+      url: "substitution-statistics",
+      version: "Last updated: early 2019"
     }
   ];
 </script>
