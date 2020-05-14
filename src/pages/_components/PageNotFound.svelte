@@ -1,6 +1,5 @@
 <script>
   import { url } from "@sveltech/routify";
-  export let root = false;
 </script>
 
 <style>
@@ -21,6 +20,6 @@
   <div class="big">
     Page not found.
     <!-- link to the parent folder of _fallback.svelte -->
-    <a href={root ? '/' : $url('..')}>Go back</a>
+    <a href="/">Go back</a>
   </div>
 </div>

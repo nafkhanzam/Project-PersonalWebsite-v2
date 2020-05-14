@@ -1,6 +1,7 @@
 import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+// import globals from 'rollup-plugin-node-globals';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import copy from 'rollup-plugin-copy'
@@ -34,7 +35,7 @@ function createConfig({ output, inlineDynamicImports, plugins = [] }) {
                 targets: [
                     { src: staticDir + '/**/!(__index.html)', dest: distDir },
                     { src: `${staticDir}/__index.html`, dest: distDir, rename: '__app.html', transform },
-                ], copyOnce: true
+                ], copyOnce: true, flatten: false
             }),
             svelte({
                 // enable run-time checks when not in production
@@ -57,6 +58,22 @@ function createConfig({ output, inlineDynamicImports, plugins = [] }) {
                 dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
             }),
             commonjs(),
+            // commonjs({
+            //     namedExports: {
+            //         // Gotcha: You need to
+            //         // explicitly name the exports
+            //         // because commonjs plugin is
+            //         // not smart enough to work 
+            //         // with pixi.js Browserify v4 builds
+            //         'pixi.js': [
+            //             'VERSION',
+            //             'Application',
+            //             'Graphics'
+            //         ]
+            //     }
+            // }),
+
+            // globals(),
 
 
             // If we're building for production (npm run build

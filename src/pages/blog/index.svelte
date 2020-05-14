@@ -2,14 +2,13 @@
   import { url } from "@sveltech/routify";
   import { getJSON, toPrettyDate } from "../../utils";
   import Loading from "../_components/Loading.svelte";
+  import Error from "../_components/Error.svelte";
 
   let tags = new Set();
   let selectedTags = new Set();
 
-  let blogsPromise = getBlogs();
-  async function getBlogs() {
-    tags.clear();
-    blogsPromise = await Promise.all(
+  let blogsPromise = (async function() {
+    return await Promise.all(
       (await getJSON("/assets/blogs.json")).data
         .map(async val => {
           const blogData = await getJSON(`/assets/blogs/${val}.json`);
@@ -19,7 +18,7 @@
         })
         .sort(data => data.date)
     );
-  }
+  })();
 </script>
 
 <h1 class="text-center">Blogs</h1>
@@ -72,4 +71,6 @@
       </div>
     </div>
   </div>
+{:catch err}
+  <Error />
 {/await}
