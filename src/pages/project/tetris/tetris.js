@@ -27,14 +27,14 @@ export class TetrisGame {
         this.gridY = gridY;
         this.gridSize = gridSize;
 
-        this.app = new PIXI.Application({ width, height, backgroundColor, resolution: window.devicePixelRatio || 1 });
+        this.app = new PIXI.Application({ width, height, backgroundColor, resolution: 1 });
         this.grids = new Array(this.gridX);
         for (let i = 0; i < this.gridX; ++i) {
             this.grids[i] = new Array(this.gridY);
             for (let j = 0; j < this.gridY; ++j) {
                 const sprite = new PIXI.Sprite.from(PIXI.Texture.WHITE);
-                sprite.x = i * gridX;
-                sprite.y = j * gridY;
+                sprite.x = i * gridSize;
+                sprite.y = j * gridSize;
                 sprite.width = gridSize;
                 sprite.height = gridSize;
                 sprite.tint = backgroundColor;
@@ -53,10 +53,14 @@ export class TetrisGame {
         for (let i = 0; i < this.gridX; ++i) {
             this.remove(i, y);
         }
-        for (let j = y; j < gridY; ++j) {
+        let last = 0;
+        for (let j = y; j > last; --j) {
             for (let i = 0; i < this.gridX; ++i) {
-                this.grids[i][j].sprite.tint = j == gridY - 1 ? this.backgroundColor : this.grids[i][j + 1].sprite.tint;
-                this.grids[i][j].active = j == gridY - 1 ? false : this.grids[i][j + 1].active;
+                if (this.grids[i][j].active) {
+                    last = j - 2;
+                }
+                this.grids[i][j].sprite.tint = j == 0 ? this.backgroundColor : this.grids[i][j - 1].sprite.tint;
+                this.grids[i][j].active = j == 0 ? false : this.grids[i][j - 1].active;
             }
         }
     }
@@ -75,6 +79,19 @@ export class TetrisGame {
     place(type, rot, x, y) {
         const arr = getGrids(type, rot, x, y);
         arr.filter(([x, y]) => x >= 0 && x < this.gridX && y >= 0 && y < this.gridY).forEach(([x, y]) => this.grids[x][y].active = true);
+        let maxY = getSize(type, rot)[1] + y - 1;
+        for (let j = Math.max(0, y); j <= maxY; ++j) {
+            let full = true;
+            for (let i = 0; i < this.gridX; ++i) {
+                if (!this.grids[i][j].active) {
+                    full = false;
+                    break;
+                }
+            }
+            if (full) {
+                this.removeRow(j);
+            }
+        }
     }
 
     collides(type, rot, x, y) {
@@ -93,40 +110,109 @@ export class TetrisGame {
 
     start() {
         let type, rot, pos;
-        let speed = 15;
+        let speed = 10;
         let placed = 0, placedNeededToNextLevel = 10;
         let currTime = 0;
         let gridX = this.gridX;
         let currColor;
 
         function reset() {
-            pos = [gridX / 2, -2];
+            pos = [gridX / 2 - 1, -1];
             type = getRandomType();
             rot = Math.floor(Math.random() * rotates[type]);
             currColor = getRandomColor();
-            if (placed > placedNeededToNextLevel) {
+            if (placed >= placedNeededToNextLevel) {
                 placed = 0;
-                speed = Math.max(10, speed - 10);
+                speed = Math.max(10, speed - 1);
             }
         }
 
         reset();
 
+        const eventHandler = (e) => {
+            const k = e.key.toLowerCase();
+            const l = k === "arrowleft";
+            const r = k === "arrowright";
+            const down = k === "s";
+            const d = k === "d";
+            const a = k === "a";
+            if (l || r || down || d || a) {
+                this.draw(type, rot, pos[0], pos[1], null);
+                if (l) {
+                    let nextX = Math.max(0, pos[0] - 1);
+                    let grids = getGrids(type, rot, nextX, pos[1]);
+                    if (!grids.find(grid => this.grids[grid[0]][grid[1]] && this.grids[grid[0]][grid[1]].active)) {
+                        pos[0] = nextX;
+                    }
+                } else if (r) {
+                    let width = getSize(type, rot)[0];
+                    let nextX = Math.min(this.gridX - width, pos[0] + 1);
+                    let grids = getGrids(type, rot, nextX, pos[1]);
+                    if (!grids.find(grid => this.grids[grid[0]][grid[1]] && this.grids[grid[0]][grid[1]].active)) {
+                        pos[0] = nextX;
+                    }
+                } else if (down) {
+                    while (!this.collides(type, rot, pos[0], pos[1])) {
+                        ++pos[1];
+                    }
+                } else if (d) {
+                    rot = (rot + 1) % rotates[type];
+                } else if (a) {
+                    const mod = rotates[type];
+                    rot = (((rot - 1) % mod) + mod) % mod;
+                }
+                this.draw(type, rot, pos[0], pos[1], currColor);
+            }
+        }
+
+        window.addEventListener("keydown", eventHandler);
+        this.destroyKeyEvents = function () {
+            window.removeEventListener("keydown", eventHandler);
+        }
+
         this.app.ticker.add(delta => {
+            if (this.grids[gridX / 2 - 1][0].active) {
+                const text = new PIXI.Text("Game Over!", { fontFamily: 'Arial', fontSize: 24, fill: 0xFFFFFF, align: 'center', fontWeight: "bolder", dropShadow: true, dropShadowColor: 0, blur: 5 });
+                text.x = (this.app.screen.width - text.width) / 2;
+                text.y = (this.app.screen.height - text.height) / 2;
+                this.app.stage.addChild(text);
+                this.app.ticker.stop();
+            }
             currTime += delta;
             if (currTime > speed) {
+                let n = Math.floor(currTime / speed);
                 currTime %= speed;
-                if (this.collides(type, rot, pos[0], pos[1])) {
-                    this.place(type, rot, pos[0], pos[1]);
-                    reset();
-                } else {
-                    ++pos[1];
-                    this.draw(type, rot, pos[0], pos[1], null);
+                while (n--) {
+                    if (this.collides(type, rot, pos[0], pos[1])) {
+                        this.place(type, rot, pos[0], pos[1]);
+                        reset();
+                        break;
+                    } else {
+                        this.draw(type, rot, pos[0], pos[1], null);
+                        ++pos[1];
+                    }
                 }
             }
             this.draw(type, rot, pos[0], pos[1], currColor);
         });
     }
+
+    destroy() {
+        if (this.destroyKeyEvents) {
+            this.destroyKeyEvents();
+        }
+        this.app.destroy();
+    }
+}
+
+function getSize(type, rot) {
+    const arr = getGrids(type, rot, 1, 1);
+    let ansX = 1, ansY = 1;
+    arr.forEach(e => {
+        ansX = Math.max(e[0], ansX);
+        ansY = Math.max(e[1], ansY);
+    });
+    return [ansX, ansY];
 }
 
 class BlockBuilder {
@@ -209,7 +295,7 @@ function getGrids(type, rot, x, y) {
         }
         case 'j': {
             if (rot == 3) {
-                return builder.add(0, 0).down().down().left().result;
+                return builder.add(1, 0).down().down().left().result;
             } else if (rot == 2) {
                 return builder.add(0, 0).right().right().down().result;
             } else if (rot == 1) {
