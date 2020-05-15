@@ -10,7 +10,7 @@
     container.appendChild(game.app.view);
     game.start();
     return () => {
-      game.app.destroy();
+      game.destroy();
     };
   });
 </script>
@@ -19,8 +19,11 @@
 <hr />
 <div class="d-flex">
   <div bind:this={container} />
-  <div class="ml-4 flex-fill">
-    <p>A simple tetris game created with Pixi.js library.</p>
+  <div class="ml-4">
+    <p>
+      A simple tetris game created with Pixi.js library. Created to expand my
+      experience on javascript technologies in these coronavirus lockdown days.
+    </p>
     <ul>
       <li>
         <b>Left</b>

@@ -1,3 +1,4 @@
+DONE - Tetris
 - Get-To-Know me Quiz.
 - Snake
 - To-Do list with localStorage

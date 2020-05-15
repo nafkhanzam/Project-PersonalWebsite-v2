@@ -32,14 +32,26 @@ export class TetrisGame {
         for (let i = 0; i < this.gridX; ++i) {
             this.grids[i] = new Array(this.gridY);
             for (let j = 0; j < this.gridY; ++j) {
-                const sprite = new PIXI.Sprite.from(PIXI.Texture.WHITE);
-                sprite.x = i * gridSize;
-                sprite.y = j * gridSize;
-                sprite.width = gridSize;
-                sprite.height = gridSize;
-                sprite.tint = backgroundColor;
-                this.app.stage.addChild(sprite);
-                this.grids[i][j] = { sprite, active: false };
+                const graphics = new PIXI.Graphics();
+                graphics.x = i * gridSize;
+                graphics.y = j * gridSize;
+                graphics.width = gridSize;
+                graphics.height = gridSize;
+                graphics.tint = backgroundColor;
+
+                const borderSize = 2;
+
+                graphics.beginFill(0xAAAAAA);
+                graphics.drawRect(0, 0, gridSize, gridSize);
+                graphics.endFill();
+
+                graphics.beginFill(0xFFFFFF, 1);
+                graphics.drawRect(borderSize, borderSize, gridSize - 2 * borderSize, gridSize - 2 * borderSize);
+                graphics.endFill();
+
+
+                this.app.stage.addChild(graphics);
+                this.grids[i][j] = { sprite: graphics, active: false };
             }
         }
     }
@@ -137,6 +149,7 @@ export class TetrisGame {
             const d = k === "d";
             const a = k === "a";
             if (l || r || down || d || a) {
+                let width = getSize(type, rot)[0];
                 this.draw(type, rot, pos[0], pos[1], null);
                 if (l) {
                     let nextX = Math.max(0, pos[0] - 1);
@@ -145,7 +158,6 @@ export class TetrisGame {
                         pos[0] = nextX;
                     }
                 } else if (r) {
-                    let width = getSize(type, rot)[0];
                     let nextX = Math.min(this.gridX - width, pos[0] + 1);
                     let grids = getGrids(type, rot, nextX, pos[1]);
                     if (!grids.find(grid => this.grids[grid[0]][grid[1]] && this.grids[grid[0]][grid[1]].active)) {
@@ -160,6 +172,10 @@ export class TetrisGame {
                 } else if (a) {
                     const mod = rotates[type];
                     rot = (((rot - 1) % mod) + mod) % mod;
+                }
+                width = getSize(type, rot)[0];
+                if (pos[0] + width >= this.gridX) {
+                    pos[0] = this.gridX - width;
                 }
                 this.draw(type, rot, pos[0], pos[1], currColor);
             }

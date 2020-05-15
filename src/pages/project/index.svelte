@@ -31,6 +31,13 @@
       desc: "A live input football matches.",
       url: "substitution-statistics",
       version: "Last updated: early 2019"
+    },
+    {
+      title: "Tetris",
+      img: "/tetris.jpg",
+      desc: "A simple tetris game created with Pixi.js library.",
+      url: "tetris",
+      version: "Last updated: 15/05/2020"
     }
   ];
 </script>
