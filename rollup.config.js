@@ -55,26 +55,10 @@ function createConfig({ output, inlineDynamicImports, plugins = [] }) {
             // https://github.com/rollup/rollup-plugin-commonjs
             resolve({
                 browser: true,
-                dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
+                dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/'),
+                preferBuiltins: false,
             }),
             commonjs(),
-            // commonjs({
-            //     namedExports: {
-            //         // Gotcha: You need to
-            //         // explicitly name the exports
-            //         // because commonjs plugin is
-            //         // not smart enough to work 
-            //         // with pixi.js Browserify v4 builds
-            //         'pixi.js': [
-            //             'VERSION',
-            //             'Application',
-            //             'Graphics'
-            //         ]
-            //     }
-            // }),
-
-            // globals(),
-
 
             // If we're building for production (npm run build
             // instead of npm run dev), minify

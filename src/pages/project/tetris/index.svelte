@@ -5,9 +5,13 @@
   let container;
 
   onMount(() => {
-    let app = new TetrisGame(1080, 720, 0, 10, 24, 50);
-    app.start();
-    container.appendChild(app.view);
+    let w = 200;
+    let game = new TetrisGame(w, w * 2.4, 0, 10, 24, 20);
+    container.appendChild(game.app.view);
+    game.start();
+    return () => {
+      game.app.destroy();
+    };
   });
 </script>
 
