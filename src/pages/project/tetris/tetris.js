@@ -49,7 +49,6 @@ export class TetrisGame {
                 graphics.drawRect(borderSize, borderSize, gridSize - 2 * borderSize, gridSize - 2 * borderSize);
                 graphics.endFill();
 
-
                 this.app.stage.addChild(graphics);
                 this.grids[i][j] = { sprite: graphics, active: false };
             }
@@ -90,7 +89,7 @@ export class TetrisGame {
 
     place(type, rot, x, y) {
         const arr = getGrids(type, rot, x, y);
-        arr.filter(([x, y]) => x >= 0 && x < this.gridX && y >= 0 && y < this.gridY).forEach(([x, y]) => this.grids[x][y].active = true);
+        arr.filter(([x, y]) => !this.isOutOfBounds(x, y)).forEach(([x, y]) => this.grids[x][y].active = true);
         let maxY = getSize(type, rot)[1] + y - 1;
         for (let j = Math.max(0, y); j <= maxY; ++j) {
             let full = true;
@@ -106,6 +105,10 @@ export class TetrisGame {
         }
     }
 
+    isOutOfBounds(x, y) {
+        return x < 0 || x >= this.gridX || y < 0 || y >= this.gridY;
+    }
+
     collides(type, rot, x, y) {
         const arr = getGrids(type, rot, x, y);
         return arr.find(grid => {
@@ -118,6 +121,16 @@ export class TetrisGame {
             }
             return obj.active;
         });
+    }
+
+    isPlacementValid(type, rot, x, y) {
+        let blocks = getGrids(type, rot, x, y);
+        for (let pos of blocks) {
+            if (this.isOutOfBounds(pos[0], pos[1]) || this.grids[pos[0]][pos[1]].active) {
+                return false;
+            }
+        }
+        return true;
     }
 
     start() {
@@ -168,10 +181,16 @@ export class TetrisGame {
                         ++pos[1];
                     }
                 } else if (d) {
-                    rot = (rot + 1) % rotates[type];
+                    let nextRot = (rot + 1) % rotates[type];
+                    if (this.isPlacementValid(type, nextRot, pos[0], pos[1])) {
+                        rot = nextRot;
+                    }
                 } else if (a) {
                     const mod = rotates[type];
-                    rot = (((rot - 1) % mod) + mod) % mod;
+                    let nextRot = (((rot - 1) % mod) + mod) % mod;
+                    if (this.isPlacementValid(type, nextRot, pos[0], pos[1])) {
+                        rot = nextRot;
+                    }
                 }
                 width = getSize(type, rot)[0];
                 if (pos[0] + width >= this.gridX) {

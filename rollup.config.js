@@ -1,23 +1,19 @@
 import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-// import globals from 'rollup-plugin-node-globals';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import copy from 'rollup-plugin-copy'
 import del from 'del'
 
-
-
 const staticDir = 'public'
 const distDir = 'dist'
 const buildDir = `${distDir}/build`
 const production = !process.env.ROLLUP_WATCH;
-const bundling = process.env.BUNDLING || production ? 'dynamic' : 'bundle'
+const bundling = process.env.BUNDLING || production ? 'dynamic' : 'bundle';
 const shouldPrerender = (typeof process.env.PRERENDER !== 'undefined') ? process.env.PRERENDER : !!production
 
-
-del.sync(distDir + '/**')
+del.sync(distDir + '/')
 
 function createConfig({ output, inlineDynamicImports, plugins = [] }) {
     const transform = inlineDynamicImports ? bundledTransform : dynamicTransform
@@ -98,9 +94,9 @@ const dynamicConfig = {
 
 
 const configs = [createConfig(bundledConfig)]
-if (bundling === 'dynamic')
-    configs.push(createConfig(dynamicConfig))
-if (shouldPrerender) [...configs].pop().plugins.push(prerender())
+// if (bundling === 'dynamic')
+//     configs.push(createConfig(dynamicConfig))
+// if (shouldPrerender) [...configs].pop().plugins.push(prerender())
 export default configs
 
 

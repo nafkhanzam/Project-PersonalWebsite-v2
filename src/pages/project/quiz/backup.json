@@ -1,0 +1,96 @@
+{
+    "description": "A simple quiz to determine how much you know Camcam.",
+    "id": "b9e4ccf0-9757-11ea-a62d-692794b986bc",
+    "questions": [
+        {
+            "answers": [
+                "Shingeki no Kyojin",
+                "Tokyo Ghoul",
+                "Naruto!",
+                "One Piece"
+            ],
+            "question": "His favourite manga?"
+        },
+        {
+            "answers": [
+                "Shingeki no Kyojin",
+                "Steins;Gate",
+                "Hyouka",
+                "Death Note"
+            ],
+            "question": "His favourite anime?"
+        },
+        {
+            "answers": [
+                "Moch. Nafkhan Alzamzami",
+                "Mochammad Nafkhan Alzamzami",
+                "Moch. Nafkhan Al-zamzami",
+                "Mochammad Nafkhan Al-zamzami"
+            ],
+            "question": "His full name?"
+        },
+        {
+            "answers": [
+                "Java",
+                "Javascript/Node.js",
+                "C#",
+                "Python"
+            ],
+            "question": "His favourite programming language?"
+        },
+        {
+            "answers": [
+                "Full-stack developer",
+                "Front-end developer",
+                "Back-end developer",
+                "DevOps"
+            ],
+            "question": "His favourite programming role?"
+        },
+        {
+            "answers": [
+                "Fruits",
+                "Fastfoods",
+                "Indonesian foods",
+                "Anything's good"
+            ],
+            "question": "His favourite kind of food?"
+        },
+        {
+            "answers": [
+                "1999",
+                "1998",
+                "2000",
+                "2001"
+            ],
+            "question": "In what year was he born?"
+        },
+        {
+            "answers": [
+                "Sidoarjo",
+                "Surabaya",
+                "Bandung",
+                "Malang"
+            ],
+            "question": "Where is he from?"
+        },
+        {
+            "answers": [
+                "Medical school",
+                "High school",
+                "Accountant school"
+            ],
+            "question": "Before studying in ITB, he studied at?"
+        },
+        {
+            "answers": [
+                "Minecraft server",
+                "Football statistics app",
+                "Game project"
+            ],
+            "question": "What was the first business project he made?"
+        }
+    ],
+    "title": "How much do you know Camcam?",
+    "titleId": "camcam"
+}

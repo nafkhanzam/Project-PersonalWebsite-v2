@@ -4,6 +4,7 @@
   import Hoverable from "./Hoverable.svelte";
 
   export let item;
+  export let withImage = false;
 </script>
 
 <style>
@@ -27,11 +28,13 @@
           {''}
         </a>
       {/if}
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <img class="card-img" src={item.img} alt={item.alt || item.title} />
-        </div>
-        <div class="col-md-8">
+      <div class={withImage ? 'row no-gutters' : ''}>
+        {#if withImage}
+          <div class="col-md-4">
+            <img class="card-img" src={item.img} alt={item.alt || item.title} />
+          </div>
+        {/if}
+        <div class={withImage ? 'col-md-8' : ''}>
           <div class="card-body d-flex flex-column" style="height: 100%;">
             <div>
               <h5 class="card-title">{item.title}</h5>

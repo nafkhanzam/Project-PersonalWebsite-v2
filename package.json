@@ -7,8 +7,7 @@
         "build": "routify -bD && rollup -c",
         "serve": "spassr --serve-spa --serve-ssr",
         "export": "routify export",
-        "deploy:now": "cd scripts/now && npm run deploy",
-        "deploy:netlify": "cd scripts/netlify && npm run deploy",
+        "deploy": "cd now && npm run deploy",
         "rollup": "rollup -cw",
         "routify": "routify -D"
     },

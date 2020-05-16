@@ -1,0 +1,33 @@
+{
+    "version": 2,
+    "routes": [
+        {
+            "src": "/api/quiz",
+            "dest": "/api/quiz/options.ts",
+            "methods": [
+                "OPTIONS"
+            ]
+        },
+        {
+            "src": "/api/quiz",
+            "dest": "/api/quiz/post.ts",
+            "methods": [
+                "POST"
+            ]
+        },
+        {
+            "src": "/api/quiz",
+            "dest": "/api/quiz/get.ts",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/.*",
+            "dest": "/__app.html"
+        }
+    ]
+}

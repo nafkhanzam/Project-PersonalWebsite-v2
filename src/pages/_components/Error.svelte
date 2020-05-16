@@ -1,5 +1,6 @@
 <script>
-  export let err;
+  export let msg = "Unexpected error occured.";
+  export let err = null;
   if (err) {
     console.log(err);
   }
@@ -11,4 +12,4 @@
   }
 </style>
 
-<p>Something's wrong, I can feel it.</p>
+<p>{msg}</p>

@@ -18,6 +18,14 @@
       version: "Last updated: 28 April 2020"
     },
     {
+      title: "Quiz",
+      img: "/quiz.jpg",
+      desc:
+        "A simple multiple choices question quiz. You try to answer the questions, and get the score.",
+      url: "quiz",
+      version: "Last updated: 17 May 2020"
+    },
+    {
       title: "Checkmate Finder",
       img: "/chess.jpg",
       desc:
