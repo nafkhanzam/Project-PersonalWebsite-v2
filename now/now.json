@@ -1,9 +1,19 @@
 {
     "version": 2,
+    "env": {
+        "REGION": "ap-southeast-1",
+        "AWS_ACCESS_ID": "AGKWIRA6XW4FWSAHDRZ4Y5ODM8YGF4KBR25EX4NM",
+        "AWS_SECRET_ID": "7B9y6o92VafGEb7PjGYhoOKOhUMG8TWxYUGINaVz"
+    },
     "routes": [
         {
             "src": "/api/quiz",
             "dest": "/api/quiz/options.ts",
+            "headers": {
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Methods": "*",
+                "Access-Control-Allow-Origin": "*"
+            },
             "methods": [
                 "OPTIONS"
             ]
@@ -11,6 +21,11 @@
         {
             "src": "/api/quiz",
             "dest": "/api/quiz/post.ts",
+            "headers": {
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Methods": "*",
+                "Access-Control-Allow-Origin": "*"
+            },
             "methods": [
                 "POST"
             ]
@@ -18,6 +33,11 @@
         {
             "src": "/api/quiz",
             "dest": "/api/quiz/get.ts",
+            "headers": {
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Methods": "*",
+                "Access-Control-Allow-Origin": "*"
+            },
             "methods": [
                 "GET"
             ]
