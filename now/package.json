@@ -2,8 +2,8 @@
     "scripts": {
         "build": "echo \"dummy build\"",
         "build:app": "cd .. && yarn build",
-        "deploy": "node build && now --prod",
-        "stage": "node build && now"
+        "deploy": "node build && vercel --prod",
+        "stage": "node build && vercel"
     },
     "dependencies": {
         "@now/node": "^1.6.1",
