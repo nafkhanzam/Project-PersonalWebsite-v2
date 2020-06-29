@@ -5,6 +5,11 @@
     title: "WORK EXPERIENCE",
     contents: [
       {
+        title: "GDP Labs",
+        desc: "Software Development Engineer - Internship",
+        time: "June 2020 - August 2020"
+      },
+      {
         title: "XTREMAX",
         desc: "Back End Developer - Part-time",
         time: "August 2019 - February 2020"
@@ -22,7 +27,7 @@
       {
         title: "INSTITUT TEKNOLOGI BANDUNG",
         desc:
-          "Computer Science - Bachelor's degree<br />Currently on the 4th semester with the current GPA 3.8/4.0",
+          "Computer Science - Bachelor's degree<br />Currently on the 4th semester with the current GPA 3.76/4.0",
         time: "August 2018 - Present"
       }
     ]
@@ -65,7 +70,7 @@
     <h1 class="font-weight-bold">MOCH. NAFKHAN ALZAMZAMI</h1>
     <h4>Computer Science Student</h4>
     <p class="text-justify">
-      A 4th semester undergraduate computer science student that’s passionate in
+      A 4<sup>th</sup> semester undergraduate computer science student that’s passionate in
       software engineering, computer science, and any other IT related. Learning
       by trial and error method by teaching, creating projects, and solving
       problems. Easy to adapt in new environments.
@@ -86,24 +91,24 @@
 <Content item={workExperience} />
 <Content item={skillExperience}>
   <h4 class="font-weight-bold">PROGRAMMING LANGUAGE</h4>
-  <p>Java, C#, Javascript, Typescript, C/C++, Python</p>
+  <p>Java, C#, Javascript, Typescript, C/C++, Python, Go, Rust</p>
   <h4 class="font-weight-bold mt-4">WEB DEVELOPMENT</h4>
   <ul>
     <li>
       <b>Backend:</b>
-      Node.js, .NET
+      Node.js, .NET, Java, GraphQL
     </li>
     <li>
       <b>Frontend:</b>
-      React, Svelte
+      React, Vue, Svelte
     </li>
     <li>
       <b>Cloud:</b>
-      Git, AWS, Docker, CI/CD
+      Git, AWS, Docker, Firebase
     </li>
     <li>
       <b>Database:</b>
-      MongoDB, SQL Server
+      MongoDB, SQL Server, MySQL, FaunaDB, DynamoDB, Firestore
     </li>
   </ul>
   <h4 class="font-weight-bold">OTHERS</h4>
