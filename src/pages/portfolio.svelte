@@ -5,13 +5,23 @@
     title: "WORK EXPERIENCE",
     contents: [
       {
+        title: "Alinamed",
+        desc: "Lead Project Engineer - Full time",
+        time: "June 2020 - Present"
+      },
+      {
+        title: "Impulse ITB",
+        desc: "Back End Developer - Full time",
+        time: "July 2020 - Present"
+      },
+      {
         title: "GDP Labs",
         desc: "Software Development Engineer - Internship",
         time: "June 2020 - August 2020"
       },
       {
-        title: "XTREMAX",
-        desc: "Back End Developer - Part-time",
+        title: "Xtremax",
+        desc: "Back End Developer - Part time",
         time: "August 2019 - February 2020"
       }
     ]
@@ -70,7 +80,7 @@
     <h1 class="font-weight-bold">MOCH. NAFKHAN ALZAMZAMI</h1>
     <h4>Computer Science Student</h4>
     <p class="text-justify">
-      A 4<sup>th</sup> semester undergraduate computer science student that’s passionate in
+      A 4<sup>th</sup> semester undergraduate computer science student that's passionate in
       software engineering, computer science, and any other IT related. Learning
       by trial and error method by teaching, creating projects, and solving
       problems. Easy to adapt in new environments.
@@ -100,7 +110,7 @@
     </li>
     <li>
       <b>Frontend:</b>
-      React, Vue, Svelte
+      React, React-Native, Vue, Svelte, Flutter
     </li>
     <li>
       <b>Cloud:</b>
