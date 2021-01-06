@@ -28,7 +28,7 @@
     },
     "dependencies": {
         "@sveltech/routify": "^1.7.8",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "pixi.js": "^5.2.4",
         "showdown": "^1.9.1",
         "svelte": "^3.22.2",
