@@ -6,24 +6,32 @@
     contents: [
       {
         img: "pesanpesta.png",
-        title: "pesanpesta",
-        desc: "Chief Technology Officer - Full time",
+        title: "pesanpesta (Start-up Project)",
+        desc: "Full Stack Developer - Full time",
         subdesc:
           "Actively developing a mobile app using Node.js (Typescript), GraphQL (Nexus.js), Prisma, PostgreSQL, React-Native, and Amazon Web Services. Making sure the codebase is secure and best practice.",
         time: "January 2021 - Present",
+      },
+      {
+        img: "",
+        title: "Marwah Point (Start-up Project)",
+        desc: "Full Stack Developer - Full time",
+        subdesc:
+          "Actively developing a mobile app using Laravel, MySQL, React-Native (Typescript), and Amazon Web Services.",
+        time: "August 2020 - Present",
       },
       {
         img: "https://d2w51pw0y636wu.cloudfront.net/assets/images/favicon.png",
         title: "AlinaMed",
         desc: "Chief Technology Officer - Full time",
         subdesc:
-          "Maintaining a tracker system for clinic keeping track of their covid patients using Golang, Laravel, React-Native, and Amazon Web Services. Developed a homecare and telemedicine mobile app using Node.js (Typescript), GraphQL (Nexus.js), Prisma, MySQL, React-Native, and Amazon Web Services.",
+          "Making executive decisions on behalf of the company's technological requirements. Acting as a mentor to team members. Maintaining a tracker system for clinic keeping track of their covid patients using Golang, Laravel, React-Native, and Amazon Web Services. Developed a homecare and telemedicine mobile app using Node.js (Typescript), GraphQL (Nexus.js), Prisma, MySQL, React-Native, and Amazon Web Services.",
         time: "August 2020 - December 2020",
       },
       {
         img:
           "https://pbs.twimg.com/profile_images/1054733450006220806/zEJycNpH_400x400.jpg",
-        title: "Impulse ITB 2020",
+        title: "Impulse ITB",
         desc: "Back End Developer - Full time",
         subdesc:
           "Developed and maintaining a web service for impulseitb.com using Node.js (Typescript), GraphQL (Nexus.js), Prisma, MySQL, and Amazon Web Services",
@@ -140,16 +148,21 @@
   <p>Java, C#, JavaScript, TypeScript, C/C++, Python, Go, Rust</p>
   <h4 class="font-weight-bold mt-4">WEB DEVELOPMENT</h4>
   <ul>
-    <li><b>Backend:</b> Express.js, Flask, .NET, Java, Nexus.js (GraphQL)</li>
-    <li><b>Frontend:</b> React, React-Native, Vue, Svelte, Flutter</li>
-    <li><b>Cloud:</b> Git, AWS, Docker, Firebase</li>
+    <li>
+      <b>Backend:</b> Express.js, Nexus.js (GraphQL) w/ Prisma, Flask, .NET, Java
+      Spring, Serverless Functions
+    </li>
+    <li>
+      <b>Frontend:</b> React, React-Native, Vue, Svelte, Flutter, TailwindCSS
+    </li>
+    <li><b>Cloud:</b> Git, AWS, Docker, Firebase, GCP</li>
     <li>
       <b>Database:</b>
       PostgreSQL, MongoDB, SQL Server, MySQL, FaunaDB, DynamoDB, Firestore
     </li>
   </ul>
   <h4 class="font-weight-bold">OTHERS</h4>
-  <p>Linux, JavaFX, Java Swing, Electron.js, PyQt, OpenGL</p>
+  <p>Linux, JavaFX, Java Swing, Electron.js, PyQt, OpenGL, Winforms</p>
 </Content>
 <Content item={education} />
 <Content item={achievement} />

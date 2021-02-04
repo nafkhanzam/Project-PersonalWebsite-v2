@@ -13,8 +13,10 @@
             alt={content.title}
             style="height: 100px; width: 100px;"
           />
-          <div style="width: 32px; max-width: 32px; min-width: 32px; " />
+        {:else}
+          <div style="width: 100px;" />
         {/if}
+        <div style="width: 32px; max-width: 32px; min-width: 32px; " />
         <div class="d-flex" style="flex-grow: 1;">
           <div style="width: 100%">
             <div class="d-flex justify-content-between">
