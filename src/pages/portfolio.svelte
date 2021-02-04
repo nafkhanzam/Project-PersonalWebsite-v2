@@ -8,12 +8,16 @@
         img: "pesanpesta.png",
         title: "pesanpesta",
         desc: "Chief Technology Officer - Full time",
+        subdesc:
+          "Actively developing a mobile app using Node.js (Typescript), GraphQL (Nexus.js), Prisma, PostgreSQL, React-Native, and Amazon Web Services. Making sure the codebase is secure and best practice.",
         time: "January 2021 - Present",
       },
       {
         img: "https://d2w51pw0y636wu.cloudfront.net/assets/images/favicon.png",
         title: "AlinaMed",
         desc: "Chief Technology Officer - Full time",
+        subdesc:
+          "Maintaining a tracker system for clinic keeping track of their covid patients using Golang, Laravel, React-Native, and Amazon Web Services. Developed a homecare and telemedicine mobile app using Node.js (Typescript), GraphQL (Nexus.js), Prisma, MySQL, React-Native, and Amazon Web Services.",
         time: "August 2020 - December 2020",
       },
       {
@@ -21,12 +25,16 @@
           "https://pbs.twimg.com/profile_images/1054733450006220806/zEJycNpH_400x400.jpg",
         title: "Impulse ITB 2020",
         desc: "Back End Developer - Full time",
+        subdesc:
+          "Developed and maintaining a web service for impulseitb.com using Node.js (Typescript), GraphQL (Nexus.js), Prisma, MySQL, and Amazon Web Services",
         time: "July 2020 - Present",
       },
       {
         img: "https://d2w51pw0y636wu.cloudfront.net/assets/images/favicon.png",
         title: "AlinaMed",
         desc: "Lead Project Engineer - Full time",
+        subdesc:
+          "Developed a tracker system for clinic keeping track of their covid patients using Golang, Laravel, React-Native, and Amazon Web Services. Developed a homecare and telemedicine mobile app using Node.js (Typescript), GraphQL (Nexus.js), Prisma, MySQL, React-Native, and Amazon Web Services.",
         time: "June 2020 - August 2020",
       },
       {
@@ -34,6 +42,8 @@
           "https://media-exp1.licdn.com/dms/image/C4D0BAQHpXhPivbZyzA/company-logo_200_200/0/1519934507071?e=2159024400&v=beta&t=sP2XLm6Yhpfa61YpLaIG-_YPu7QUxfO4opQ5kdb6I6I",
         title: "GDP Labs",
         desc: "Software Development Engineer - Internship",
+        subdesc:
+          "Researched about OpenAPI 3 and FaunaDB with the integrations using Java Spring Frameworks.",
         time: "June 2020 - August 2020",
       },
       {
@@ -41,6 +51,8 @@
           "https://media-exp1.licdn.com/dms/image/C560BAQGZUTKmp-2Jjw/company-logo_200_200/0/1537436986424?e=2159024400&v=beta&t=arxDEGPzK8y4qGMru3LyAn0Oa3wvNcNIBJBVD_WQWF0",
         title: "Xtremax",
         desc: "Back End Developer - Part time",
+        subdesc:
+          "Developed a web application using ASP.Net. Researched about serving a jamstack hosting using docker and AWS pipeline.",
         time: "August 2019 - February 2020",
       },
     ],
@@ -54,9 +66,11 @@
     title: "EDUCATION",
     contents: [
       {
+        img:
+          "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Institut_Teknologi_Bandung_logo.svg/1200px-Institut_Teknologi_Bandung_logo.svg.png",
         title: "INSTITUT TEKNOLOGI BANDUNG",
-        desc:
-          "Computer Science - Bachelor's degree<br />Currently on the 6th semester with the current GPA 3.75/4.0",
+        desc: "Computer Science - Bachelor's degree",
+        subdesc: "Currently on the 6th semester with the current GPA 3.75/4.0",
         time: "August 2018 - Present",
       },
     ],
@@ -66,11 +80,21 @@
     title: "ACHIEVEMENT",
     contents: [
       {
+        img:
+          "https://pbs.twimg.com/profile_images/1256670153699401731/Q4mQ5CVq.jpg",
+        title: "IEEEXtreme 13.0",
+        desc: "Ranked 26th out of 2,781 teams",
+        time: "2019",
+      },
+      {
+        img: "https://avatars1.githubusercontent.com/u/42386935?s=280&v=4",
         title: "ARKAVIDIA 5.0 COMPETITIVE PROGRAMMING",
         desc: "Finalist",
         time: "2019",
       },
       {
+        img:
+          "https://image.winudf.com/v2/image/YWNtaWNwYy50YWxoYS5leGFtcGxlLmNvbS5hY21pY3BjX2ljb25fMF80NmZhMWZjZA/icon.png?w=170&fakeurl=1",
         title: "INTERNATIONAL COLLEGIATE PROGRAMMING CONTEST",
         desc: "Regional Finalist",
         time: "2018",
