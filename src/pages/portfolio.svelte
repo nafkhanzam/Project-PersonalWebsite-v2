@@ -137,10 +137,10 @@
 <Content item={workExperience} />
 <Content item={skillExperience}>
   <h4 class="font-weight-bold">PROGRAMMING LANGUAGE</h4>
-  <p>Java, C#, Javascript, Typescript, C/C++, Python, Go, Rust</p>
+  <p>Java, C#, JavaScript, TypeScript, C/C++, Python, Go, Rust</p>
   <h4 class="font-weight-bold mt-4">WEB DEVELOPMENT</h4>
   <ul>
-    <li><b>Backend:</b> Node.js, .NET, Java, GraphQL</li>
+    <li><b>Backend:</b> Express.js, Flask, .NET, Java, Nexus.js (GraphQL)</li>
     <li><b>Frontend:</b> React, React-Native, Vue, Svelte, Flutter</li>
     <li><b>Cloud:</b> Git, AWS, Docker, Firebase</li>
     <li>
