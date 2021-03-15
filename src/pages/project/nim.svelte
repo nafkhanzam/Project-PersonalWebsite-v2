@@ -1,5 +1,5 @@
 <script>
-  import { getNIMData } from "../../utils";
+  import {getNIMData} from "../../utils";
   import Error from "../_components/Error.svelte";
   import Loading from "../_components/Loading.svelte";
   import Hoverable from "../_components/Hoverable.svelte";
@@ -9,7 +9,7 @@
 
   const LOCAL_STORAGE_NAME = "nim-data";
   const LOCAL_STORAGE_VERSION = "nim-version";
-  let version = "2019";
+  let version = "2021";
   let currVersion = localStorage.getItem(LOCAL_STORAGE_VERSION);
   let data;
   const DEFAULT_MAX = 10;
@@ -39,7 +39,7 @@
       return data.sort(getSorter());
     } else {
       return data
-        .filter(student => {
+        .filter((student) => {
           for (const val of lowerCaseValue.split(" ")) {
             if (
               !(isNaN(val)
@@ -74,12 +74,6 @@
   }
 </script>
 
-<style>
-  .active {
-    cursor: pointer;
-  }
-</style>
-
 <h1>ITB NIM Finder (ver. {version})</h1>
 <hr />
 <input
@@ -87,7 +81,8 @@
   class="form-control"
   bind:value
   on:input={updateResult}
-  placeholder="nim, name, or both." />
+  placeholder="nim, name, or both."
+/>
 <div class="mt-3">
   {#if resPromise}
     {#await resPromise}
@@ -124,7 +119,7 @@
               <tr>
                 <th style="width: 15%" scope="row">{idx + 1}</th>
                 <td style="width: 45%">{student[0]}</td>
-                <td style="width: 20%">{student[2]}</td>
+                <td style="width: 20%">{student[2] || student[1]}</td>
                 <td style="width: 20%">{student[1]}</td>
               </tr>
             {/each}
@@ -135,7 +130,8 @@
                 class:bg-dark={hovered}
                 class:text-white={hovered}
                 class:active={hovered}
-                on:click={() => (max += 10)}>
+                on:click={() => (max += 10)}
+              >
                 <th scope="row">...</th>
                 <td>Load more...</td>
                 <td>...</td>
@@ -152,3 +148,9 @@
     <Loading />
   {/if}
 </div>
+
+<style>
+  .active {
+    cursor: pointer;
+  }
+</style>
